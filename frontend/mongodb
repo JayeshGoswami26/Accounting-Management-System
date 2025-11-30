@@ -1,0 +1,23 @@
+# Does MongoDB respond on the default port?
+mongo --eval "db.runCommand({ ping: 1 })"
+# or (newer clients)
+mongosh --eval "db.runCommand({ ping: 1 })"
+
+start mongo db
+
+# If installed as a systemd service
+sudo systemctl start mongod
+sudo systemctl status mongod
+
+# OR if the service name is different (common on some distros)
+sudo systemctl start mongodb
+sudo systemctl status mongodb
+
+sudo mongod --dbpath /var/lib/mongodb
+# (or whatever your dbpath is)
+
+
+test
+mongo --eval "db.runCommand({ ping: 1 })"
+# or
+mongosh --eval "db.runCommand({ ping: 1 })"
